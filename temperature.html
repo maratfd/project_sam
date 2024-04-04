@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+    
+	<title>Temperature</title>
+	<script>
+        setInterval(function ( ) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("TEMP1").innerHTML = this.responseText;
+					document.getElementById("TEMP2").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "/temp", true);
+            xhttp.send();
+        }, 10000 ) ;
+</script>
+        
+</head>
+<body>
+	<div class="container">
+		<div class="row">									
+			<div class="col-lg-3"><a href="/">Главная</a></div>
+		</div>
+	</div>
+    <div class="container">
+		<div class="row">									
+			<div class="col-lg-12">Температура 1 - <span id="TEMP1">%TEMP1%</span></div>
+			<div class="col-lg-12">Температура 2 - <span id="TEMP2">%TEMP2%</span></div>
+		</div>
+	</div>
+
+
+</body>
+</html>
+
